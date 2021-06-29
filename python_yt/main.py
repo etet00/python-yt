@@ -1,4 +1,3 @@
-import python_yt.pipeline.steps.step
 from python_yt.pipeline.pipeline import Pipeline
 from python_yt.pipeline.steps.get_video_list import GetVideoClass
 
