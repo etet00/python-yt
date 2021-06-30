@@ -7,7 +7,7 @@ class Steps(ABC):  # 抽象物件(abstract base class)至少需要一個或以�
         pass
 
     @abstractmethod
-    def process(self, data, inputs):
+    def process(self, data, inputs, utils):
         pass
 
 
