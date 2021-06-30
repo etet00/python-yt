@@ -8,7 +8,7 @@ from python_yt.setting import API_KEY
 class GetVideoClass(Steps):     # 物件取名通常不會家底線，以開頭第一個大寫作為不同單字的區隔
     def process(self, data, inputs, utils):  # 因為抽象類別的關係，其子物件必須繼承父物件的類別方法
         channel_id = inputs["channel_id"]
-        if utils.video_link_list_exist(channel_id):
+        if utils.check_video_link_list_exist(channel_id):
             return self.read_video_list(utils.get_video_link_list_path(channel_id))
 
         base_video_url = 'https://www.youtube.com/watch?v='

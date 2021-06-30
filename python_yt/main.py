@@ -2,6 +2,7 @@ from python_yt.pipeline.pipeline import Pipeline
 from python_yt.pipeline.steps.get_video_list import GetVideoClass
 from python_yt.utils import Utils
 from python_yt.pipeline.steps.mk_dir import DirCreate
+from python_yt.pipeline.steps.get_subtitles import GetSubtitles
 
 CHANNEL_ID = "UCqTVfT9JQqhA6_Hi_h_h97Q"  # 全域變數通常以全大寫命名
 # inputs
@@ -14,6 +15,7 @@ def main():
     steps = [
         DirCreate(),
         GetVideoClass(),
+        GetSubtitles(),
     ]
 
     utils = Utils()
