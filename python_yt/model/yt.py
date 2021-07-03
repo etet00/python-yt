@@ -20,3 +20,15 @@ class YT:
 
     def get_video_files_path(self):
         return os.path.join(VIDEOS_DIR, self.id + ".txt")
+
+    def __str__(self):
+        return "<YT(" + str(self.id) + ")>"
+
+    def __repr__(self):
+        contain=":".join([
+            "url=" + str(self.url),
+            "id=" + str(self.id),
+            "subtitle_filepath=" + str(self.sub_filepath),
+            "video_filepath=" + str(self.video_filepath),
+        ])
+        return "<Found" + contain + ")>"
