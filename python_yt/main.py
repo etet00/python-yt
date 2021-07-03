@@ -2,6 +2,7 @@ from python_yt.pipeline.pipeline import Pipeline
 from python_yt.utils import Utils
 from python_yt.pipeline.steps.mk_dir import DirCreate
 from python_yt.pipeline.steps.get_video_list import GetVideoClass
+from python_yt.pipeline.steps.yt_instance import TYInstance
 from python_yt.pipeline.steps.get_subtitles import GetSubtitles
 from python_yt.pipeline.steps.read_subtitles import ReadSubtitles
 
@@ -16,6 +17,7 @@ def main():
     steps = [
         DirCreate(),
         GetVideoClass(),
+        TYInstance(),
         GetSubtitles(),
         ReadSubtitles(),
     ]
