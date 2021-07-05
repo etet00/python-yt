@@ -6,6 +6,8 @@ from python_yt.pipeline.steps.yt_instance import TYInstance
 from python_yt.pipeline.steps.get_subtitles import GetSubtitles
 from python_yt.pipeline.steps.read_subtitles import ReadSubtitles
 from python_yt.pipeline.steps.search import Search
+from python_yt.pipeline.steps.download_video import DownloadVideo
+from python_yt.pipeline.steps.edit_vedios import EditVideos
 
 CHANNEL_ID = "UCqTVfT9JQqhA6_Hi_h_h97Q"  # 全域變數通常以全大寫命名
 
@@ -14,6 +16,7 @@ def main():
     inputs = {
         "channel_id": CHANNEL_ID,
         "search_word": "sexy move",
+        "limit": "20",
     }
     steps = [
         DirCreate(),
@@ -22,6 +25,8 @@ def main():
         GetSubtitles(),
         ReadSubtitles(),
         Search(),
+        DownloadVideo(),
+        EditVideos(),
     ]
 
     utils = Utils()
