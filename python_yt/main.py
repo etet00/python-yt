@@ -16,7 +16,7 @@ def main():
     inputs = {
         "channel_id": CHANNEL_ID,
         "search_word": "sexy move",
-        "limit": "20",
+        "limit": "30",
     }
     steps = [
         DirCreate(),
