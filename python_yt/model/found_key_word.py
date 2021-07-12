@@ -8,7 +8,7 @@ class FoundKeyWord:
         return "<Found(" + str(self.yt) + ")>"
 
     def __repr__(self):
-        contain=":".join([
+        contain = ":".join([
             "yt=" + str(self.yt),
             "subtitle=" + str(self.subtitle),
             "time=" + str(self.time),
