@@ -1,3 +1,4 @@
+from python_yt.command_line_argu_fun import command_fun
 from python_yt.pipeline.pipeline import Pipeline
 from python_yt.utils import Utils
 from python_yt.pipeline.steps.mk_dir import DirCreate
@@ -16,7 +17,8 @@ def main():
     inputs = {
         "channel_id": CHANNEL_ID,
         "search_word": "sexy move",
-        "limit": "5",
+        "limit": "20",
+        "cleanup": False,
     }
     steps = [
         DirCreate(),
@@ -29,6 +31,8 @@ def main():
         EditVideos(),
     ]
 
+    inputs = command_fun(inputs)
+    # print(inputs)
     utils = Utils()
     p = Pipeline(steps)
     p.run(inputs, utils)
@@ -36,6 +40,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# video_list = get_all_video_in_channel(CHANNEL_ID)
-# print(len(video_list))
