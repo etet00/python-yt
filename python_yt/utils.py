@@ -5,6 +5,7 @@ from python_yt.setting import VIDEOS_DIR
 from python_yt.setting import SUBTITLES_DIR
 from python_yt.setting import OUTPUTS_DIR
 
+
 class Utils:
     def __init__(self):
         pass

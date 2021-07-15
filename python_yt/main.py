@@ -9,6 +9,9 @@ from python_yt.pipeline.steps.read_subtitles import ReadSubtitles
 from python_yt.pipeline.steps.search import Search
 from python_yt.pipeline.steps.download_video import DownloadVideo
 from python_yt.pipeline.steps.edit_vedios import EditVideos
+from python_yt.pipeline.steps.cleanup import CleanOutput
+from python_yt.pipeline.steps.cleanup import CleanDownloadFiles
+
 
 CHANNEL_ID = "UCqTVfT9JQqhA6_Hi_h_h97Q"  # 全域變數通常以全大寫命名
 
@@ -17,10 +20,12 @@ def main():
     inputs = {
         "channel_id": CHANNEL_ID,
         "search_word": "sexy move",
-        "limit": "20",
-        "cleanup": False,
+        "limit": "30",
+        "clean_output": True,
+        "clean_downloads": False,
     }
     steps = [
+        CleanOutput(),
         DirCreate(),
         GetVideoClass(),
         TYInstance(),
@@ -29,6 +34,7 @@ def main():
         Search(),
         DownloadVideo(),
         EditVideos(),
+        CleanDownloadFiles(),
     ]
 
     inputs = command_fun(inputs)

@@ -27,6 +27,11 @@ class EditVideos(Steps):
         result = CompositeVideoClip([result, subtitles])
         output_filepath = utils.get_output_filepath(inputs["channel_id"], inputs["search_word"])
         result.write_videofile(output_filepath, fps=30)
+
+        # close video files
+        for video in video_list:
+            video.close()
+
         return data
 
     def parse_time(self, subtitle_time):

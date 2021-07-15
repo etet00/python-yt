@@ -13,4 +13,5 @@ class DownloadVideo(Steps):
                 continue
             print(f"download video from {yt.url}")
             YouTube(yt.url).streams.get_highest_resolution().download(output_path=VIDEOS_DIR, filename=yt.id)
+            print(f"download finnish")
         return data
