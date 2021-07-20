@@ -7,7 +7,7 @@ def command_fun(inputs):
     argv = sys.argv[1:]
     short_opts = "hc:s:l:"  # 當 short_opts 後面有需要承接引數時，需在後面加上冒號
     # 當 long_opts 後面有需要承接引數時，需在後面加上等號
-    long_opts = "help channel_id= search_word= limit= clean_output clean_downloads".split()
+    long_opts = "help channel_id= search_word= limit= level= clean_output clean_downloads".split()
     try:
         opts, args = getopt.getopt(argv, short_opts, long_opts)
     except getopt.GetoptError:
@@ -24,6 +24,8 @@ def command_fun(inputs):
             inputs["search_word"] = arg
         elif opt in ("-l", "--limit"):
             inputs["limit"] = arg
+        elif opt == "--level":
+            inputs["level"] = arg
         elif opt == "--clean_output":
             inputs["clean_output"] = False
         elif opt == "--clean_downloads":
@@ -43,5 +45,7 @@ def print_usage():
     print("{:>6} {:<20} {}".format("-c", "--channel_id", "Channel ID of the Youtube channel to download"))
     print("{:>6} {:<20} {}".format("-s", "--search_word", "The key word that you want to capture in videos"))
     print("{:>6} {:<20} {}".format("-l", "--limit", "The maximum number of capture videos in the output video"))
+    print("{:>6} {:<20} {}".format("", "--level", "Change logging level to print on the scream"))
+    print("{:>6} {:<20} {}".format("", "", "<1:DEBUG/2:INFO/3:WARNING/4:ERROR/5:CRITICAL>"))
     print("{:>6} {:<20} {}".format("", "--clean_output", "Remove previous output video"))
     print("{:>6} {:<20} {}".format("", "--clean_downloads", "Remove downloaded subtitle files and videos during running"))

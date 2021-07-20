@@ -1,4 +1,5 @@
 from python_yt.command_line_argu_fun import command_fun
+from python_yt.config_logger import config_log
 from python_yt.pipeline.pipeline import Pipeline
 from python_yt.utils import Utils
 from python_yt.pipeline.steps.mk_dir import DirCreate
@@ -21,6 +22,7 @@ def main():
         "channel_id": CHANNEL_ID,
         "search_word": "sexy move",
         "limit": "30",
+        "level": "3",
         "clean_output": True,
         "clean_downloads": False,
     }
@@ -38,7 +40,7 @@ def main():
     ]
 
     inputs = command_fun(inputs)
-    # print(inputs)
+    config_log(inputs["level"])
     utils = Utils()
     p = Pipeline(steps)
     p.run(inputs, utils)

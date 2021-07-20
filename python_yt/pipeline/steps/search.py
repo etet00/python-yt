@@ -15,5 +15,4 @@ class Search(Steps):
                     time = subtitles[word]
                     f = FoundKeyWord(yt, word, time)
                     found_results.append(f)
-        # print(len(found_results))
         return found_results
